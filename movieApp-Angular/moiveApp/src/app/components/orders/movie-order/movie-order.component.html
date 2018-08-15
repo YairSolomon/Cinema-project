@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <h1>{{movie?.title}}</h1>
+    </div>
+
+  </div>
+  <div>
+    <div class="row">
+      <div class="col-3 releaseYear">
+
+        <p>
+          Director:{{movie?.director}}
+        </p>
+        <p>
+          Release Year:{{movie?.releaseYear}}
+        </p>
+        <p>
+          Lenth:{{movie?.length}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="padding-top: 20px">
+    <div class="row">
+      <div class="col-8 movie-description">
+        <i class="fas fa-calendar-alt"></i>
+        {{movie?.description}}
+
+
+      </div>
+      <div class="col-4">
+        <img [src]="movie?.imageUrl">
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+<table>
+  <tr>
+    <th>Hall</th>
+    <th>Date</th>
+    <th>Hour</th>
+    <th>Availavle Seats</th>
+  </tr>
+  <tr *ngFor="let show of shows">
+    <td>{{show?.hallNumber.hallNumber }}</td>
+    <td>{{show?.showDate | date:'dd/MM/yy'}}</td>
+    <td>{{show?.showDate | date:'EEEE'}}</td>
+    <td>{{(show?.hallNumber.SeatsRows * show.hallNumber.SeatsCols) -show.reservedSeats.length }}</td>
+    <a (click)="chooseSeats(show._id,show.hallNumber.hallNumber)">Choose seats</a>
+
+  </tr>
+</table>

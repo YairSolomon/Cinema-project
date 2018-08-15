@@ -1,0 +1,21 @@
+<div class="movies">
+  <div class="movies-container">
+    <div class="container-fluid">
+      <div class="row">
+        <div *ngFor="let movie of movies | async" class="col-lg-3 col-md-4 col-sm-4 col-6 movie-poster">
+
+          <a routerLink="movies/{{movie.title}}">
+            <img class="movie-image" [src]="movie.imageUrl">
+            <span class="movie-title">{{movie.title}}</span>
+          </a>
+          <div>
+            <a routerLink="order/{{movie.title}}">Order Ticket</a>
+          </div>
+        </div>
+     
+        </div>
+
+    </div>
+  </div>
+
+</div>

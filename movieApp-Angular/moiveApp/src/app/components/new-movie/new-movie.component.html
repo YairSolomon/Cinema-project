@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+      <div class="col-12">
+          <form  [formGroup]="myForm" (ngSubmit)="onSubmit()"> 
+              <div *ngFor="let input of form">
+                  <div class="form-group row justify-content-center ">
+                      <div class="col-8 ">
+                          <label>{{input.name}}</label>
+                          <input type="{{input.type}}" class="form-control" placeholder="Enter {{input.name}}" maxlength="{{input.max}}" name="{{input.formControl}}" formControlName="{{input.formControl}}">
+                      </div>
+                  </div>
+                  <div class="error form-group row justify-content-center" *ngIf="!myForm.get(input.formControl).valid &&  myForm.get(input.formControl).touched"> 
+                      <span *ngIf="myForm.get(input.formControl).errors['required']">
+                  {{input.required}}y
+              </span>
+                  </div>
+              </div>
+              <div class="row submit-button">
+                  <div class="col-12">
+                      <div class="form-group row justify-content-center">
+                          <input  type="submit" [disabled]="!myForm.valid" id="btn" class="btn btn-primary" value="Add Movie">
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+
+  </div>
+
+</div>
+

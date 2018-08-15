@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-8">
+          <h1>{{movie.title}}</h1>
+      </div>
+      <div class="col-4">
+        <div class="col-12">
+            <span class="update-movie-button" (click)="updateMovie()">Update Movie</span>
+        </div>  
+        <br>
+        <div class="col-12">
+            <span class="delete-movie-button" (click)="deleteMovie()">Delete Movie</span>
+        </div>
+       
+      </div>
+      
+  </div>
+  <div>
+    <div class="row">
+      <div class="col-3 releaseYear">
+
+          <p>
+              Director:{{movie.director}}
+          </p>
+        <p>
+            Release Year:{{movie.releaseYear}}
+        </p>
+        <p>
+            Lenth:{{movie.length}}
+        </p>    
+      </div>
+    </div>
+  </div>
+  
+
+  <div style="padding-top: 20px">
+    <div class="row">
+      <div class="col-8 movie-description">
+          <i class="fas fa-calendar-alt"></i>
+        {{movie.description}}
+
+      
+      </div>
+      <div class="col-4">
+          <img [src]="movie.imageUrl">
+      </div>
+    </div>
+ 
+
+  </div>
+
+
+</div>

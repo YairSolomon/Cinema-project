@@ -1,0 +1,57 @@
+<h1>Movie Details:</h1>
+
+Movie Name : {{show?.movie.title}}
+<br> Show Date : {{show?.showDate | date:'dd/MM/yy'}}
+<br>
+<p *ngFor="let seat of clientOrderSeats">
+   row:{{seat.rowNumber}}
+   col:{{seat.colNumber}}
+</p>
+<p> Total Price: {{clientOrderSeats.length * price}} ILS</p>
+
+<h3>Pesonal details:</h3>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()" > 
+              <label>firstname:</label>
+              <input type="text" formControlName="firstname">
+              <label>lastname:</label>
+              <input type="text" formControlName="lastname">
+              <label>card Type:</label>
+              <select formControlName="cardType">
+                  <option value="" disabled selected>Select your card</option>
+                  <option *ngFor="let card of cardType">{{card}}</option>
+              </select>
+              <label>Card Number:</label>
+              <input type="number" formControlName="cardNumber" name="cardNumber"> 
+              <label>Email:</label>
+              <input type="eamil" formControlName="email" name="email"> 
+              <label>Year:</label>
+              <select (change)="checkValid($event.target.value)" formControlName="validYear">
+                  <option value="" disabled selected>Select your year</option>
+                  <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+              </select>
+              <label>Month:</label>
+              <select formControlName="validMonth" name="validMonth">
+                  <option value="" disabled selected>Select your month</option>
+                  <option *ngFor="let month of months" value="{{month}}">{{month}}</option>
+              </select>
+              <label>user:</label>
+              <input type="text" name="userId" formControlName="userId"> 
+             
+             <button > Submit</button>
+             <!-- [disabled]="!userForm.valid" -->
+            </form>
+         
+        </div>
+  
+    </div>
+  
+  </div>
+<!--   
+  <select >
+    <option *ngFor="let x of cardType">{{x}}</option>
+  </select> -->

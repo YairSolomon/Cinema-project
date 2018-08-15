@@ -1,0 +1,21 @@
+h1{
+    margin-bottom: 20px;
+}
+thead{
+    width: 50%;
+}
+#menu-buttons{
+    text-align: center;
+    padding: 15px;
+    font-size: 15px;
+    cursor: pointer;
+}
+th{
+    text-align: center;
+}
+span{
+    padding: 10px
+}
+.error{
+    color: red;
+}

@@ -1,0 +1,16 @@
+
+<div class="movies">
+    <div class="movies-container">
+        <div class="container-fluid">
+          <div class="row">
+            <select [(ngModel)]="hallNumber" (change)="changed($event)">
+                <option disabled>Choose Hall</option>
+                <option *ngFor="let hall of halls | async | orderBy;" class="col-lg-3 col-md-4 col-sm-4 col-6 movie-poster"  value="{{hall.hallNumber}}" >
+                  {{hall.hallNumber}}
+                </option>
+            </select>
+          </div>
+    </div>
+    </div>
+    
+    </div>

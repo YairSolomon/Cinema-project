@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>order ID</th>
+      <th>Order Date</th>
+      <th>Ticket number</th>
+      <th>seats Id</th>
+  
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders; let i=index;">
+      <td>{{order._id}}</td>
+      <td>{{order.orderDate | date:'dd/MM/yy'}}</td>
+      <td>{{order.ticketsNum}}</td>
+      <td><p style="border: 1px royalblue solid" *ngFor="let seat of order.seats">seat ID:{{seat.id}} -- Row:{{seat.rowNumber}} -- Col{{seat.colNumber}}</p></td>
+      <td><button (click)="deleteOrder(order._id)"> DELEE</button></td>
+    
+    </tr>
+  </tbody>
+</table>
+
+<!-- <span *ngFor="let order of orders.seats;let i=index;">
+  
+  orderid:{{order._id}} --col:{{order.seats[i].colNumber }},  row:{{order.seats[i].rowNumber }}
+</span> -->

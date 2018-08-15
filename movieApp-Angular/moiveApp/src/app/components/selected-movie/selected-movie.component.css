@@ -1,0 +1,50 @@
+.container-fluid{
+    padding-top: 20px;
+    min-height: 500px;
+}
+h1{
+    text-align: left;
+    text-transform: uppercase;
+    color: white
+}
+.order-button{
+    text-align: center;
+}
+
+div{
+    background-color: black;
+}
+.img-responsive{
+    text-align: center;
+}
+.releaseYear{
+    color: white;
+}
+.movie-description{
+    color:white;
+    
+}
+
+/* update and delete buttons style */
+
+.update-movie-button,.delete-movie-button{
+    transition: background-color 1s ease;
+    font-size: 24px;
+    color: black;
+    background-color:#f5821e;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.update-movie-button:hover{
+    background-color: green;
+}
+
+.delete-movie-button:hover{
+    background-color: red;
+}
+
+
+

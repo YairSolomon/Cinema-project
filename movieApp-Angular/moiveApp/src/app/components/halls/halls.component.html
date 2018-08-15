@@ -1,0 +1,79 @@
+<h1>Halls List</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Hall Number</th>
+      <th scope="col">Seats</th>
+      <th scope="col">
+        <button (click)="onAddMovieClick()" type="button" data-toggle="modal" data-target="#addEditHallModal" class="btn btn-lg btn-primary menu-buttons">
+          <i class="fas fa-plus-square"></i>
+          <span>Add hall</span>
+        </button>
+      </th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hall of halls  | async | orderBy">
+      <th>{{hall.hallNumber }}</th>
+      <th>{{hall.SeatsRows * hall.SeatsCols}}</th>
+      <th data-toggle="modal" data-target="#addEditHallModal" (click)="updateHall(hall.hallNumber,hall.SeatsRows,hall.SeatsCols);">
+        <button type="button" class="btn btn-lg btn-success menu-buttons">
+          <i class="far fa-edit"></i>
+          <span>Update</span>
+        </button>
+      </th>
+      <th (click)="deleteHall(hall.hallNumber)">
+        <button type="button" class="btn btn-lg btn-danger  menu-buttons">
+          <i class="fas fa-trash-alt"></i>
+          <span>Delete</span>
+        </button>
+      </th>
+      <th>
+
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal for add and edit -->
+
+<div class="modal fade" id="addEditHallModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form style="border: 1px solid black" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+          <div *ngFor="let input of form">
+            <div class="form-group row justify-content-center ">
+              <div class="col-8 ">
+                <label>{{input.name}}</label>
+                <input type="{{input.type}}" class="form-control" placeholder="Enter {{input.name}}" max="{{input.max}}" name="{{input.formControl}}"
+                  formControlName="{{input.formControl}}">
+                <i class="glyphicon glyphicon-user"></i>
+              </div>
+            </div>
+            <div class="error form-group row justify-content-center" *ngIf="!myForm.get(input.formControl).valid &&  myForm.get(input.formControl).touched">
+              <span *ngIf="myForm.get(input.formControl).errors['required']">
+                {{input.required}}
+              </span>
+
+              <span *ngIf="myForm.get(input.formControl).errors['minlength']">
+                {{input.minlength}}
+              </span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" [disabled]="!myForm.valid" appSelect id="submitButton" class="btn btn-primary" value="{{buttonValue}}">
+            <input type="button" class="btn btn-secondary" data-dismiss="modal" value="close">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

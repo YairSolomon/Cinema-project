@@ -1,0 +1,34 @@
+.container-header{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+   background-color: black;
+}
+.navbar-collapse{
+    background-color:#f5821e;
+    height: 50px;
+}
+
+ul{
+    list-style: none;
+    overflow: hidden;
+    list-style-type: none;
+    height: 50px;
+
+}
+li{
+    font-size: 24px;
+    color: black;
+    background-color:#f5821e;
+    font-weight: bold;
+    padding: 10px;
+    display:inline-block;
+    border-right:2px solid;
+    padding:10px;
+    text-transform: uppercase;
+
+    vertical-align: 2px;
+}
+li:last-child {
+    border-right:none;
+}
